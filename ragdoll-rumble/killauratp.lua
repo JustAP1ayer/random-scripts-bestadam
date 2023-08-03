@@ -22,6 +22,15 @@ game.Players.PlayerAdded:Connect(function(NewPlayer)
         end
     end
 end)
+spawn(function()
+        while task.wait(0.1) do
+            for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+        if tool:IsA("Tool")  and game:GetService("Players").LocalPlayer.Character then
+            tool.Parent = game:GetService("Players").LocalPlayer.Character
+        end
+    end
+        end
+    end)
 task.spawn(function()
         for i,v in pairs(workspace.Map["Kill baseplates"]:GetDescendants()) do
 if v:IsA("Part")  or v:IsA("MeshPart") or v:IsA("BasePart") or
@@ -35,6 +44,19 @@ if v:IsA("Part")  or v:IsA("MeshPart") or v:IsA("BasePart") or
                                     v.CanTouch = false
                                     end
                                     end
+    end)
+task.spawn(function()
+        while task.wait() do
+if game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Dynamite") and game.Players.LocalPlayer.Character:FindFirstChild("Dynamite"):FindFirstChild("Handle") then
+local args = {
+    [1] = "Dynamite",
+    [2] = game:GetService("Players").LocalPlayer.Character.Dynamite.Handle,
+    [3] = game:GetService("Players").LocalPlayer.Character.Dynamite.Handle.CFrame
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Connections"):WaitForChild("Throw"):FireServer(unpack(args))
+end
+end
     end)
 local player = game.Players.LocalPlayer
 local humanoidRootPart
