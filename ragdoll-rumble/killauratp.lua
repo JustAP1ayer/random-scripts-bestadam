@@ -44,6 +44,12 @@ if v:IsA("Part")  or v:IsA("MeshPart") or v:IsA("BasePart") or
                                     v.CanTouch = false
                                     end
                                     end
+                                            for i,v in pairs(workspace.Map.Magnets:GetDescendants()) do
+if v:IsA("Part")  or v:IsA("MeshPart") or v:IsA("BasePart") or
+                                    v:IsA("UnionOperation") then
+                                    v.CanTouch = false
+                                    end
+                                    end
     end)
 task.spawn(function()
         while task.wait() do
