@@ -31,6 +31,7 @@ spawn(function()
     end
         end
     end)
+wait(0.5)
 task.spawn(function()
         for i,v in pairs(workspace.Map["Kill baseplates"]:GetDescendants()) do
 if v:IsA("Part")  or v:IsA("MeshPart") or v:IsA("BasePart") or
@@ -45,6 +46,12 @@ if v:IsA("Part")  or v:IsA("MeshPart") or v:IsA("BasePart") or
                                     end
                                     end
                                             for i,v in pairs(workspace.Map.Magnets:GetDescendants()) do
+if v:IsA("Part")  or v:IsA("MeshPart") or v:IsA("BasePart") or
+                                    v:IsA("UnionOperation") then
+                                    v.CanTouch = false
+                                    end
+                                    end
+                                                    for i,v in pairs(workspace.ClientModels.replicated:GetDescendants()) do
 if v:IsA("Part")  or v:IsA("MeshPart") or v:IsA("BasePart") or
                                     v:IsA("UnionOperation") then
                                     v.CanTouch = false
