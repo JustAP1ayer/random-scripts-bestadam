@@ -1,3 +1,27 @@
+local Player = game.Players.LocalPlayer
+local group_id = 969571
+--Credit to Wes
+print(game.Players.LocalPlayer:GetRoleInGroup(group_id))
+local Ranks = {"loser account holder",
+    "actually stupid than everyone 14",
+    "low is",
+    "dum dums",
+    "loser account holder",
+    }
+for i,v in pairs(game.Players:GetChildren()) do
+    for i,x in pairs(Ranks) do
+        if v:GetRoleInGroup(group_id) == x then
+            Player:Kick("RUN OWNERS JOINED THE GAME")
+        end
+    end
+end
+game.Players.PlayerAdded:Connect(function(NewPlayer)
+    for i,x in pairs(Ranks) do
+        if NewPlayer:GetRoleInGroup(group_id) == x then
+            Player:Kick("RUN OWNERS JOINED THE GAME")
+        end
+    end
+end)
 local player = game.Players.LocalPlayer
 local humanoidRootPart
 
